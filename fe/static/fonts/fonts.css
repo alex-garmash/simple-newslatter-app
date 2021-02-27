@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-200.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-200.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-300.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-400.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-500.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-500.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-600.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-600.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-700.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-800.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-800.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Almoni';
+  src: url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-900b.woff'),
+    url('https://cdn.menoramivt.co.il/public/fonts/almoni-neue-aaa-900b.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+html {
+    font-family: 'Almoni',Arial, Helvetica, sans-serif, serif;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+::selection {
+  background: #7462ff;
+  color: #ffffff;
+}

@@ -1,0 +1,13 @@
+fe/next.config.js
+node_modules/
+fe/.next/
+fe/static/pwa
+fe/static/manifest.json
+fe/static
+fe/public
+.idea/
+package-lock.json
+test
+postman
+soaupui
+

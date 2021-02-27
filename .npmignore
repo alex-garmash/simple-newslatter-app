@@ -1,0 +1,4 @@
+node_modules/
+fe/.next/
+fe/static/pwa
+.idea/
