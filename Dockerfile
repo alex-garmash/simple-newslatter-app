@@ -20,7 +20,6 @@ RUN \
 
 RUN \
     cp -rf /app/entrypoint.sh /entrypoint.sh && \
-#    dos2unix /entrypoint.sh && \
     chmod 755 /entrypoint.sh
 
 EXPOSE 3000
