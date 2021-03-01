@@ -1,0 +1,6 @@
+# Project exclude paths
+/node_modules/
+/fe/.next/
+eslintrc.json
+.eslintignore
+.npmignore

@@ -4,7 +4,7 @@
   "description": "project",
   "main": "server.js",
   "scripts": {
-    "docker-docker build": " docker build -t <APPNAME> .",
+    "docker-docker build": " docker build -t <APPNAME> ..",
     "dev": "node server.js",
     "build": "next build fe",
     "nodemon": "nodemon server.js",
