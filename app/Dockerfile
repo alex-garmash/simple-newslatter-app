@@ -20,5 +20,4 @@ RUN \
 
 EXPOSE 3000
 
-ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
 CMD ["npm", "run", "prod"]
