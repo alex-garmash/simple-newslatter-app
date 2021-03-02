@@ -7,11 +7,11 @@ RUN \
 COPY package*.json /app/
 
 WORKDIR /app/
-RUN \
 
+RUN \
     npm install
 
-COPY .. .
+COPY . .
 
 ARG BUILD_NUMBER
 RUN \
