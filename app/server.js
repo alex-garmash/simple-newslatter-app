@@ -54,7 +54,9 @@ app
         //REGISTER ROUTES
         const router = routes(server);
         server.use(conf.BASE_API_PATH, router);
-
+        if (conf.IS_DEV) {
+            require('./be/api/devRouter')(server);
+        }
         // register frontend views
         server.use('/', views(app));
 
