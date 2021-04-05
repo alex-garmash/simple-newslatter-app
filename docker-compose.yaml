@@ -19,10 +19,11 @@ services:
   ### database mongo
   database:
     image: mongo
-    container_name: "mongo-container"
+    container_name: "mongodb"
     env_file:
       - ./env/mongo.env
     volumes:
+      - ./home/mongodb:/home/mongodb
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./mongo-volume:/data/db
     ports:
