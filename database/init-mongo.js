@@ -1,4 +1,4 @@
-db.create({
+db.createUser({
     user: "root",
     pwd: "rootpassword",
     roles: [
