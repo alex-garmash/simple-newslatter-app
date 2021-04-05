@@ -1,0 +1,5 @@
+# kustomization.yaml contents
+resources:
+  - config-map.yaml
+  - secret.yaml
+  - statefullset-database.yaml

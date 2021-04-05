@@ -1,0 +1,5 @@
+# kustomization.yaml contents
+resources:
+  - deployment-backend.yaml
+  - service-backend.yaml
+  - tcp-liveness-readiness.yaml
