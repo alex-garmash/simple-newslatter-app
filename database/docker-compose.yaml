@@ -3,15 +3,18 @@ services:
   database:
     image: mongo
     container_name: "mongodb"
-    environment:
-      - MONGO_INITDB_DATABASE=subscribe
-      - MONGO_INIT_ROOT_USERNAME=root
-      - MONGO_INIT_ROOT_PASSWORD=rootpassword
+    env_file:
+      - ../env/mongo.env
     volumes:
+      - ./home/mongodb:/home/mongodb
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./mongo-volume:/data/db
     ports:
-    - 27017:27017
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_INITDB_DATABASE
     expose:
       - 27017
 volumes:
