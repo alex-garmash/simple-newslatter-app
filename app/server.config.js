@@ -10,7 +10,7 @@ module.exports = {
     BASE_API_PATH: '/api/v1/',
     NEXTJS_ASSET_PREFIX: '',
     // DB
-    MONGODB_CONNECTION_STRING: process.env.MONGO_CONNECTION_STRING || 'mongodb://root:rootpassword@localhost:27017/subscribe?authSource=admin',
+    MONGODB_CONNECTION_STRING: (`mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process.env.MONGO_INITDB_ROOT_PASSWORD}@${process.env.MONGO_HOST_URL}/${process.env.MONGO_INITDB_DATABASE}?authSource=admin`) || 'mongodb://localhost:27017/',
     DB_NAME: process.env.MONGO_INITDB_DATABASE || 'subscribe',
     DB_NAME_ADMIN: 'admin',
 
