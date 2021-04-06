@@ -2,8 +2,8 @@ const packageJsonFile = require('./package.json');
 
 module.exports = {
     /// GENERAL
-    SERVICE_NAME: 'kubernetes-project',
-    PORT: process.env.PORT || "3000",
+    SERVICE_NAME: process.env.APP_NAME || 'kubernetes-project',
+    PORT: process.env.APP_PORT || "3000",
     APP_URL: 'http://localhost:3000/',
     APP_RELATIVE_URL: 'http://localhost:3000/',
     IS_DEV: process.env.NODE_ENV || 'dev',
