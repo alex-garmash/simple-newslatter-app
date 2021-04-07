@@ -8,10 +8,10 @@ const conf = require('./server.config');
 const dev = conf.IS_DEV !== 'production';
 
 // executed with file name and ignored properties as an array
-const taskManager = require('./cron/taskManager');
 const useragent = require('express-useragent');
 const routes = require('./be/api/routes');
 const views = require('./views/views');
+const MongoClient = require('mongodb').MongoClient;
 
 
 const app = require('next')({ dev, dir: './fe' });
@@ -31,10 +31,6 @@ app
         //register gzip compression
         server.use(compression());
 
-        // if (conf.IS_DEV !== 'dev') {
-        //   taskManager.runJobs();
-        // }
-        // for ELK
         server.use(useragent.express());
 
         server.use(
@@ -56,6 +52,11 @@ app
         server.use(conf.BASE_API_PATH, router);
         if (conf.IS_DEV) {
             require('./be/api/devRouter')(server);
+        }
+        if (conf.IS_DEV) {
+            server.use('/conf', function (req, res) {
+                res.json({CONF: conf, ENV: process.env});
+            });
         }
         // register frontend views
         server.use('/', views(app));
@@ -83,20 +84,15 @@ async function onHealthCheck(req, res, next) {
     // checks if the system is healthy, like the db connection is live
     if (req.originalUrl === '/health') {
         try {
-            //TODO
-            //  mognodb connect
-            // const connection = await MongoClient.getConnection(conf.MONGODB_CONNECTION_STRING, {useNewUrlParser: true});
-            // const db = await connection.db(conf.DB_NAME);
-            // const result = await db.collection(conf.COLLECTION_NAME).find().project({_id: 0}).count();
-            //
-            // if (result > 0) {
-            //     res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'UP'});
-            // } else {
-            //     res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'DOWN'});
-            // }
-            res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'UP'});
+            const connection = await MongoClient.connect(conf.MONGODB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true });
+            const db = await connection.db(conf.DB_NAME);
+            if (!!db && !!db.topology && db.topology.isConnected()) {
+                res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'UP'});
+            } else {
+                res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'DOWN'});
+            }
         } catch (e) {
-            res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'DOWN'});
+            res.json({serviceName: conf.SERVICE_NAME, version: conf.VERSION, status: 'DOWN', error:e.message});
         }
     } else {
         next();
